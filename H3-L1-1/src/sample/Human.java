@@ -1,0 +1,58 @@
+package sample;
+
+public class Human {
+	private String name;
+	private String surname;
+	private int age;
+	private Sex sex;
+
+	public Human(String name, String surname, int age, Sex sex) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		this.sex = sex;
+	}
+
+	public Human() {
+		super();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public Sex getSex() {
+		return sex;
+	}
+
+	public void setSex(Sex sex) {
+		this.sex = sex;
+	}
+
+	@Override
+	public String toString() {
+		return "Human [name=" + name + ", surname=" + surname + ", age=" + age + ", sex=" + sex + "]";
+	}
+
+}
