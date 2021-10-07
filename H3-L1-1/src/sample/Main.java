@@ -35,9 +35,15 @@ public class Main {
 			System.out.println("there are no free places in the group");
 		}
 		
-		Student st12 = new CreateNewUserStudent().newStudent();
-		CreateNewUserStudent.addStudentToGroup(st12, sg1);
+//		Student st12 = new CreateNewUserStudent().newStudent();
+//		CreateNewUserStudent.addStudentToGroup(st12, sg1);		
+//		System.out.println(sg1);
 		
-		System.out.println(sg1);
+		System.out.println(st3.toCSVString());
+		
+		String a = "Andrey;Ivanov;27;MAN;325759;Math";
+		Student st13 = new Student().fromCSVString(a);
+		
+		System.out.println(st13);
 	}
 }
