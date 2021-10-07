@@ -163,7 +163,7 @@ public class StudentGroup {
 		ss = this.toString2();
 		String s;
 		int p = 0;
-		s = "StudentGroup [groupName=" + groupName + ", st=";
+		s = "StudentGroup [groupName=" + groupName + ", students: ";
 		for (int i = 0; i < ss.length; i++) {
 			if (ss[i] == null) {
 				continue;

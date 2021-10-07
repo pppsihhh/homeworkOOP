@@ -36,7 +36,7 @@ public class Student extends Human {
 
 	@Override
 	public String toString() {
-		return "Student [name - " + this.getName() + "lastName - " + this.getLastName() + "id - " + id + ", group - " + group + "]";
+		return "Student [name - " + this.getName() + " lastName - " + this.getLastName() + " id - " + id + ", group - " + group + "]";
 	}
 
 }
