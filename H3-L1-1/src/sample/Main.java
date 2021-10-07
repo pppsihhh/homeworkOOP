@@ -17,7 +17,7 @@ public class Main {
 		Student st11 = new Student("Pavlik", "Chaus", 40, Sex.MAN, 815790, "Math");
 		StudentGroup sg1 = new StudentGroup();
 		sg1.setGroupName("Programmer");
-		
+
 		try {
 			sg1.addStudent(st1);
 			sg1.addStudent(st2);
@@ -34,7 +34,7 @@ public class Main {
 		} catch (NoFreePlaseException e) {
 			System.out.println("there are no free places in the group");
 		}
-		
+
 		try {
 			sg1.addStudent(st11);
 		} catch (NoFreePlaseException e) {
@@ -51,5 +51,21 @@ public class Main {
 
 		System.out.println(sg1);
 
+		for (Student s : sg1.getStudentArray()) {
+			if (s == null) {
+				continue;
+			}
+			System.out.print(s.getLastName() + " ");
+		}
+		System.out.println("");
+
+		sg1.sortStudentByLastName();
+
+		for (Student s : sg1.getStudentArray()) {
+			if (s == null) {
+				continue;
+			}
+			System.out.print(s.getLastName() + " ");
+		}
 	}
 }

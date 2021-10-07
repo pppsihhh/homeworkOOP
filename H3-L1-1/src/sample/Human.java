@@ -2,14 +2,14 @@ package sample;
 
 public class Human {
 	private String name;
-	private String surname;
+	private String lastName;
 	private int age;
 	private Sex sex;
 
-	public Human(String name, String surname, int age, Sex sex) {
+	public Human(String name, String lastName, int age, Sex sex) {
 		super();
 		this.name = name;
-		this.surname = surname;
+		this.lastName = lastName;
 		this.age = age;
 		this.sex = sex;
 	}
@@ -26,12 +26,12 @@ public class Human {
 		this.name = name;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public int getAge() {
@@ -52,7 +52,7 @@ public class Human {
 
 	@Override
 	public String toString() {
-		return "Human [name=" + name + ", surname=" + surname + ", age=" + age + ", sex=" + sex + "]";
+		return "Human [name=" + name + ", lastName=" + lastName + ", age=" + age + ", sex=" + sex + "]";
 	}
 
 }

@@ -1,15 +1,18 @@
 package sample;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 public class StudentGroup {
+	
 	private String groupName;
-	private Student[] st = new Student[10];
+	private Student[] studentArray = new Student[10];
 
-	public StudentGroup(String groupName, Student[] st) {
+	public StudentGroup(String groupName, Student[] studentArray) {
 		super();
 		this.groupName = groupName;
-		this.st = st;
+		this.studentArray = studentArray;
 	}
 
 	public StudentGroup() {
@@ -24,28 +27,28 @@ public class StudentGroup {
 		this.groupName = groupName;
 	}
 
-	public Student[] getSt() {
-		return st;
+	public Student[] getStudentArray() {
+		return studentArray;
 	}
 
-	public void setSt(Student[] st) {
-		this.st = st;
+	public void setStudentArray(Student[] studentArray) {
+		this.studentArray = studentArray;
 	}
 
 	public void addStudent(Student s) throws NoFreePlaseException {
 		boolean a = true;
 		int count = 0;
-		for (int i = 0; i < st.length; i++) {
-			if (this.st[i] != null && this.st[i].getId() == s.getId()) {
+		for (int i = 0; i < studentArray.length; i++) {
+			if (this.studentArray[i] != null && this.studentArray[i].getId() == s.getId()) {
 				a = false;
 			}
 		}
 
 		if (a) {
-			for (int i = 0; i < this.st.length; i++) {
-				
-				if (this.st[i] == null) {
-					this.st[i] = s;
+			for (int i = 0; i < this.studentArray.length; i++) {
+
+				if (this.studentArray[i] == null) {
+					this.studentArray[i] = s;
 					break;
 				} else {
 					count++;
@@ -58,24 +61,29 @@ public class StudentGroup {
 	}
 
 	public void expulsionStudent(int id) {
-		for (int i = 0; i < st.length; i++) {
-			if (st[i] != null && st[i].getId() == id) {
-				st[i] = null;
+		for (int i = 0; i < studentArray.length; i++) {
+			if (studentArray[i] != null && studentArray[i].getId() == id) {
+				studentArray[i] = null;
 			}
 		}
 	}
 
 	public Student searchStudent(String name) throws NoSuchElementException {
-		for (int i = 0; i < st.length; i++) {
-			if (st[i] != null && st[i].getName() == name) {
-				return st[i];
+		for (int i = 0; i < studentArray.length; i++) {
+			if (studentArray[i] != null && studentArray[i].getName() == name) {
+				return studentArray[i];
 			}
 		}
 		throw new NoSuchElementException();
 	}
-
+	
+//	The method sorts and changes the original array
+	public void sortStudentByLastName() {
+		Arrays.sort(this.studentArray, Comparator.nullsLast(new StudentLastNameComparator()));
+	}
+	
 	public Student[] toString2() {
-		Student[] arr = new Student[this.st.length];
+		Student[] arr = new Student[this.studentArray.length];
 		int max = getMaxLenght();
 		for (int i = 1; i <= max; i++) {
 			arr = countSort(max, i);
@@ -86,9 +94,9 @@ public class StudentGroup {
 
 	private int getMaxLenght() {
 		int maxL = 0;
-		for (Student s : this.st) {
-			if (s != null && s.getSurname().length() > maxL) {
-				maxL = s.getSurname().length();
+		for (Student s : this.studentArray) {
+			if (s != null && s.getLastName().length() > maxL) {
+				maxL = s.getLastName().length();
 			}
 		}
 		return maxL;
@@ -105,11 +113,11 @@ public class StudentGroup {
 
 		int minKey = 0;
 		int maxKey = minKey;
-		for (Student s : this.st) {
+		for (Student s : this.studentArray) {
 			if (s == null) {
 				continue;
 			}
-			int codePoint = getSCode(s.getSurname(), maxLenght, position);
+			int codePoint = getSCode(s.getLastName(), maxLenght, position);
 			if (codePoint < minKey) {
 				minKey = codePoint;
 			}
@@ -126,31 +134,32 @@ public class StudentGroup {
 		int maxKey = minMaxKey[1];
 		int n = maxKey - minKey + 1;
 		int[] support = new int[n];
-		for (Student s : this.st) {
+		for (Student s : this.studentArray) {
 			if (s == null) {
 				continue;
 			}
-			support[getSCode(s.getSurname(), maxLenght, position) - minKey] += 1;
+			support[getSCode(s.getLastName(), maxLenght, position) - minKey] += 1;
 		}
-		int size = this.st.length;
+		int size = this.studentArray.length;
 		for (int i = support.length - 1; i >= 0; i--) {
 			size -= support[i];
 			support[i] = size;
 		}
-		Student[] result = new Student[this.st.length];
-		for (Student s : this.st) {
+		Student[] result = new Student[this.studentArray.length];
+		for (Student s : this.studentArray) {
 			if (s == null) {
 				continue;
 			}
-			result[support[getSCode(s.getSurname(), maxLenght, position) - minKey]] = s;
-			support[getSCode(s.getSurname(), maxLenght, position) - minKey] += 1;
+			result[support[getSCode(s.getLastName(), maxLenght, position) - minKey]] = s;
+			support[getSCode(s.getLastName(), maxLenght, position) - minKey] += 1;
 		}
 		return result;
 	}
 
+//	 this method returns a list of students sorted alphabetically. It does not affect the original array of students.
 	@Override
 	public String toString() {
-		Student[] ss = new Student[this.st.length];
+		Student[] ss = new Student[this.studentArray.length];
 		ss = this.toString2();
 		String s;
 		int p = 0;

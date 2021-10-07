@@ -4,8 +4,8 @@ public class Student extends Human {
 	private int id;
 	private String group;
 
-	public Student(String name, String surname, int age, Sex sex, int id, String group) {
-		super(name, surname, age, sex);
+	public Student(String name, String lastName, int age, Sex sex, int id, String group) {
+		super(name, lastName, age, sex);
 		this.id = id;
 		this.group = group;
 	}
@@ -31,12 +31,12 @@ public class Student extends Human {
 	}
 
 	public String toStringShort() {
-		return this.getSurname() + " " + this.getName();
+		return this.getLastName() + " " + this.getName();
 	}
 
 	@Override
 	public String toString() {
-		return "Student [name - " + this.getName() + "Surname - " + this.getSurname() + "id - " + id + ", group - " + group + "]";
+		return "Student [name - " + this.getName() + "lastName - " + this.getLastName() + "id - " + id + ", group - " + group + "]";
 	}
 
 }
