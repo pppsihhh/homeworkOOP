@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 public class StudentGroup {
-	
+
 	private String groupName;
 	private Student[] studentArray = new Student[10];
 
@@ -70,18 +70,18 @@ public class StudentGroup {
 
 	public Student searchStudent(String name) throws NoSuchElementException {
 		for (int i = 0; i < studentArray.length; i++) {
-			if (studentArray[i] != null && studentArray[i].getName() == name) {
+			if (studentArray[i] != null && studentArray[i].getName().equals(name)) {
 				return studentArray[i];
 			}
 		}
 		throw new NoSuchElementException();
 	}
-	
+
 //	The method sorts and changes the original array
 	public void sortStudentByLastName() {
 		Arrays.sort(this.studentArray, Comparator.nullsLast(new StudentLastNameComparator()));
 	}
-	
+
 	public Student[] toString2() {
 		Student[] arr = new Student[this.studentArray.length];
 		int max = getMaxLenght();
