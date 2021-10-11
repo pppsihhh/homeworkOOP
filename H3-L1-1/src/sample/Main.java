@@ -1,5 +1,6 @@
 package sample;
 
+import java.io.File;
 import java.util.NoSuchElementException;
 
 public class Main {
@@ -45,5 +46,10 @@ public class Main {
 		Student st13 = new Student().fromCSVString(a);
 		
 		System.out.println(st13);
+		
+		File f1 = new File("new folder");
+		f1.delete();
+		System.out.println(f1.exists());
+		
 	}
 }
