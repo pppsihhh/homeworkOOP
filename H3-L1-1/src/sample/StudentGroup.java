@@ -67,7 +67,7 @@ public class StudentGroup {
 
 	public Student searchStudent(String name) throws NoSuchElementException {
 		for (int i = 0; i < st.length; i++) {
-			if (st[i] != null && st[i].getName() == name) {
+			if (st[i] != null && st[i].getName().equals(name)) {
 				return st[i];
 			}
 		}
