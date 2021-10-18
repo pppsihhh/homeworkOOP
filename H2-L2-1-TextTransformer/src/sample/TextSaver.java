@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class TextSaver {
+	private TextTransformer transformer;
+	private File file;
+	
 	public TextTransformer getTransformer() {
 		return transformer;
 	}
@@ -20,9 +23,6 @@ public class TextSaver {
 	public void setFile(File file) {
 		this.file = file;
 	}
-
-	private TextTransformer transformer;
-	private File file;
 
 	public TextSaver(TextTransformer transformer, File file) {
 		super();
