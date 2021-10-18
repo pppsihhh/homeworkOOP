@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class TextSaver {
+public class TextSaver  {
 	private TextTransformer transformer;
 	private File file;
 	
