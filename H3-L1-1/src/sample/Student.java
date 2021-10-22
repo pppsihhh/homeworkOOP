@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Student extends Human implements CSVConverter {
 	private int id;
@@ -60,6 +61,26 @@ public class Student extends Human implements CSVConverter {
 
 	public String toStringShort() {
 		return this.getLastName() + " " + this.getName();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(group, id);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(group, other.group) && id == other.id;
 	}
 
 	@Override

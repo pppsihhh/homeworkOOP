@@ -2,6 +2,7 @@ package sample;
 
 import java.io.File;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class Main {
 	public static void main(String[] args) {
@@ -45,21 +46,36 @@ public class Main {
 //		Student st13 = new Student().fromCSVString(a);
 //		System.out.println(st13);
 
-		GroupFileStorage.saveGroupToCSV(sg1);
+//		GroupFileStorage.saveGroupToCSV(sg1);
+//
+//		File f3 = new File("");
+//		StudentGroup sg2 = new StudentGroup();
+//		boolean ch = true;
+//		try {
+//			f3 = GroupFileStorage.findFileByGroupName("Programmer", new File("Group of student"));
+//		} catch (NoSuchElementException e) {
+//			ch = false;
+//			System.out.println("Файл не найден");
+//		}
+//		if (ch) {
+//			sg2 = GroupFileStorage.loadGroupFromCSV(f3);
+//			System.out.println(sg2);
+//		}
 
-		File f3 = new File("");
-		StudentGroup sg2 = new StudentGroup();
-		boolean ch = true;
-		try {
-			f3 = GroupFileStorage.findFileByGroupName("Programmer", new File("Group of student"));
-		} catch (NoSuchElementException e) {
-			ch = false;
-			System.out.println("Файл не найден");
-		}
-		if (ch) {
-			sg2 = GroupFileStorage.loadGroupFromCSV(f3);
-			System.out.println(sg2);
-		}
+		Human h1 = new Human("Petro", "Mazur", 45, Sex.MAN);
+		Human h2 = new Human("Petro", "Mazur", 45, Sex.MAN);
+		Human h3 = new Human("Petro", "Mazur", 45, Sex.MAN);
+
+		System.out.println(h1.hashCode());
+		System.out.println(h2.hashCode());
+		System.out.println(h1.equals(h1));
+		System.out.println(h1.equals(h2)+" => "+h2.equals(h1));
+		System.out.println(h1.equals(h2)+" & "+h2.equals(h3)+" => "+h1.equals(h3));
+		System.out.println("--------------------------");
+		System.out.println(st1.hashCode());
+		System.out.println(st2.hashCode());
+		System.out.println(st1.equals(st2));
+	
 
 	}
 }

@@ -3,6 +3,7 @@ package sample;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class StudentGroup {
 
@@ -156,7 +157,28 @@ public class StudentGroup {
 		return result;
 	}
 
-//	 this method returns a list of students sorted alphabetically. It does not affect the original array of students.
+@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(studentArray);
+		result = prime * result + Objects.hash(groupName);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentGroup other = (StudentGroup) obj;
+		return Objects.equals(groupName, other.groupName) && Arrays.equals(studentArray, other.studentArray);
+	}
+
+	//	 this method returns a list of students sorted alphabetically. It does not affect the original array of students.
 	@Override
 	public String toString() {
 		Student[] ss = new Student[this.studentArray.length];
