@@ -61,21 +61,9 @@ public class Main {
 //			sg2 = GroupFileStorage.loadGroupFromCSV(f3);
 //			System.out.println(sg2);
 //		}
+		
+		System.out.println(sg1.isEqualsStudent());
 
-		Human h1 = new Human("Petro", "Mazur", 45, Sex.MAN);
-		Human h2 = new Human("Petro", "Mazur", 45, Sex.MAN);
-		Human h3 = new Human("Petro", "Mazur", 45, Sex.MAN);
-
-		System.out.println(h1.hashCode());
-		System.out.println(h2.hashCode());
-		System.out.println(h1.equals(h1));
-		System.out.println(h1.equals(h2)+" => "+h2.equals(h1));
-		System.out.println(h1.equals(h2)+" & "+h2.equals(h3)+" => "+h1.equals(h3));
-		System.out.println("--------------------------");
-		System.out.println(st1.hashCode());
-		System.out.println(st2.hashCode());
-		System.out.println(st1.equals(st2));
-	
 
 	}
 }

@@ -35,6 +35,19 @@ public class StudentGroup {
 	public void setStudentArray(Student[] studentArray) {
 		this.studentArray = studentArray;
 	}
+	
+	public boolean isEqualsStudent() {
+		
+		for (int i = 0; i < this.studentArray.length; i++) {
+			for (int j = i+1; j < this.studentArray.length; j++) {
+				if (studentArray[i].equals(studentArray[j])) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 
 	public void addStudent(Student s) throws NoFreePlaseException {
 		boolean a = true;
