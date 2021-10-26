@@ -3,13 +3,14 @@ package sample;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class GroupFileStorage {
 
 	public static void saveGroupToCSV(StudentGroup sg) {
-		Student[] st = sg.getStudentArray();
+		List<Student> st = sg.getStudentArray();
 		File folder = new File("Group of student");
 		if (!(folder.exists())) {
 			folder.mkdir();

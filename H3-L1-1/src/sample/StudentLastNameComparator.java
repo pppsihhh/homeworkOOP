@@ -2,17 +2,12 @@ package sample;
 
 import java.util.Comparator;
 
-public class StudentLastNameComparator implements Comparator {
+public class StudentLastNameComparator<T extends Student> implements Comparator<T> {
 
 	@Override
-	public int compare(Object o1, Object o2) {
-		Student s1 = (Student) o1;
-		Student s2 = (Student) o2;
-		
-		String lastName1 = s1.getLastName();
-		String lastName2 = s2.getLastName();
-		
-		return lastName1.compareTo(lastName2);
+	public int compare(T o1, T o2) {
+
+		return o1.getLastName().compareTo(o2.getLastName());
 	}
 	
 }
