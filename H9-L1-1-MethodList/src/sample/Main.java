@@ -18,7 +18,7 @@ public class Main {
 		}
 		
 		a.remove(0);
-		a.remove(1);
+		a.remove(0);
 		a.remove(a.size()-1);
 		
 		System.out.println(a);
