@@ -22,7 +22,7 @@ public class CharCounter {
 		return charClassArr;
 	}
 
-	public void Statistic(File file) {
+	public void statistic(File file) {
 		charListCreator(readText(file));
 		charClassCreator();
 		CharClassComparator<CharClass> com = new CharClassComparator<>();
