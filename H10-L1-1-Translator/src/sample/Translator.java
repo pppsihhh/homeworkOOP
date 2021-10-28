@@ -3,18 +3,24 @@ package sample;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Translator {
 	private Map<String, String> vacabulary = new HashMap<>();
+	private File f1 = new File("vacabulary\\words.txt");
 
 	public Translator() {
 		super();
+		loadVacabuary();
+	}
+	
+	public void loadVacabuary () {
 		String result = "";
-		File f1 = new File("vacabulary\\words.txt");
 		try (BufferedReader br = new BufferedReader(new FileReader(f1))) {
 			String temp = "";
 			while ((temp = br.readLine()) != null) {
@@ -73,6 +79,30 @@ public class Translator {
 			pw.println(str);
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void addNewWords() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a word in english");
+		String s1 = sc.nextLine();
+		System.out.println("Enter translate");
+		String s2 = sc.nextLine();
+		boolean needLoad = false;
+		String check = vacabulary.get(s1);
+		if (check == null) {
+			try (FileWriter fw = new FileWriter(f1, true)){
+				fw.write(s1 +"-"+s2+";");
+				needLoad = true;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("This word was in vocabulary");
+		}
+		if (needLoad) {
+			loadVacabuary();
+			System.out.println("word is add");
 		}
 	}
 

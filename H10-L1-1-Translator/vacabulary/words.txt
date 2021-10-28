@@ -1,2 +1,2 @@
 hello-привет;world-мир;pen-ручка;sky-небо;bird-птица;interesting-интересно;must-должен;translate-перевести;this-это;
-pensil-карандаш;add-добавить;home-дом;street-улица;
+pensil-карандаш;add-добавить;home-дом;street-улица;main-главный;new-новый;sun-солнце;news-Новости;
